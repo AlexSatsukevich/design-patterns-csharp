@@ -1,13 +1,14 @@
 ﻿using System;
 using DesignPatterns.Command;
 using DesignPatterns.Command.Editor;
-using DesignPatterns.Command.Fx;
 using DesignPatterns.Iterator;
+using DesignPatterns.Mediator;
 using DesignPatterns.Memento;
 using DesignPatterns.Observer;
 using DesignPatterns.State;
 using DesignPatterns.Strategy;
 using DesignPatterns.TemplateMethod;
+using Button = DesignPatterns.Command.Fx.Button;
 using History = DesignPatterns.Memento.History;
 
 // ReSharper disable UnusedMember.Local
@@ -24,7 +25,8 @@ namespace DesignPatterns
             // TestStrategy();
             // TestTemplateMethod();
             // TestCommand();
-            TestObserver();
+            // TestObserver();
+            TestMediator();
         }
 
         private static void TestMemento()
@@ -146,6 +148,12 @@ namespace DesignPatterns
             dataSource.AddObserver(chart);
 
             dataSource.Value = 1;
+        }
+
+        private static void TestMediator()
+        {
+            var dialog = new ArticlesDialogBox();
+            dialog.SimulateUserInteraction();
         }
     }
 }
